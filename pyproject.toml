@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=65.5.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "DoSL"
+version = "0.1.0"
+description = "DoSL (DoS Language): A simple programming language to execute DoS attacks for educational purposes."
+authors = [{ name = "Siqi Yan", email = "syan235711@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "certifi==2025.8.3",
+    "charset-normalizer==3.4.2",
+    "idna==3.10",
+    "lark==1.2.2",
+    "requests==2.32.4",
+    "urllib3==2.5.0"
+]
+[project.scripts]
+dosl = "DoSL.cli:main"

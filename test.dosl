@@ -1,0 +1,9 @@
+def-attack Num1{
+    threads 10;
+    requests 100;
+    attack-seq {
+        GET -url "example.com" -referer "google.com,bing.com";
+        POST -url "example.com/api" -json {"DoS": "True"} -referer "google.com";
+    };
+};
+start-attack Num1;
