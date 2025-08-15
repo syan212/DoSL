@@ -1,8 +1,7 @@
-# Programming Language: DoSL (DoS-Language)
+# DoSL (Denial of Service Language)
 
-Liscence: GNU LGPLv3
-Pronuciation: D-O-S-L
-A simple langauge for testing DoS atacks. Designed for educatational purposes.
+DoSL is a DSL for carrying out simple DoS attacks
+
 ## Commands
 - `DEF-ATTACK name {attack_def}`: Signals to interpreter that `attack_def` are the definition of attack `name`.
 - `END-DEF;`: Signals to interpreter that the attack commands for the definition of `name` have ended.
@@ -65,3 +64,5 @@ POST -url "example.com/api" -json {"DoS": "True"} -referer "google.comm";
 END-DEF;
 START-ATTACK Num1;
 ```
+## License
+This is licensed under the GNU Lesser General Public License v3.
