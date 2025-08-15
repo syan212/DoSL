@@ -1,15 +1,16 @@
 # DoSL (Denial of Service Language)
 
-DoSL is a DSL for carrying out simple DoS attacks
+DoSL is a DSL (Domain Specific Language) for carrying out simple DoS attacks. This is for educational purposes only.
 
 ## Commands
+All commands are case-insensitive.
 - `DEF-ATTACK name {attack_def}`: Signals to interpreter that `attack_def` are the definition of attack `name`.
-- `END-DEF;`: Signals to interpreter that the attack commands for the definition of `name` have ended.
-- `THREADS num;`: Number of threads for the attack.
-- `REQUESTS num;`: Number of requests for each thread.
-- `ATTACK-SEQ {attack_commands};`: Signals to the interpreter that the `attack_commands` are to be performed for the set amount of requests for the set amount of threads.
+- `THREADS num;`: Number of threads for the attack. Use inside the braces after `DEF-ATTACK`.
+- `REQUESTS num;`: Number of requests for each thread. Use inside the braces after `DEF-ATTACK`.
+- `ATTACK-SEQ {attack_commands};`: Signals to the interpreter that the `attack_commands` are to be performed for the set amount of requests for the set amount of threads. Use inside the braces after `DEF-ATTACK`.
 - `START-ATTACK name;`: Starts attack `name`.
 - `STOP-ATTACK name;`: Terminates attack `name`.
+- `SLEEP delay`: Sleeps for `delay` seconds. `delay` can be a float or an integer.
 
 ### Attack Commands
 These commands are to be used inside curly brackets (`{}`).
@@ -54,15 +55,15 @@ Sends GET requests with the specified parameters as below
 Semicolon (`;`) indicates EOL (End of line).
 ## Example
 ```
-DEF-ATTACK Num1;
-THREADS 10;
-REQUESTS 100;
-ATTACK-SEQ {
-GET -url "example.com" -referer "google.com,bing.com";
-POST -url "example.com/api" -json {"DoS": "True"} -referer "google.comm";
+def-attack Num1{
+    threads 10;
+    requests 100;
+    attack-seq {
+        GET -url "example.com" -referer "google.com,bing.com";
+        POST -url "example.com/api" -json {"DoS": "True"} -referer "google.com";
+    };
 };
-END-DEF;
-START-ATTACK Num1;
+start-attack Num1;
 ```
 ## License
 This is licensed under the GNU Lesser General Public License v3.
